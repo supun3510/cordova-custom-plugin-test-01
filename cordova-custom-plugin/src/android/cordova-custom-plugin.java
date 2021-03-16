@@ -15,8 +15,13 @@ public class cordova-custom-plugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("coolMethod")) {
-            String message = args.getString(0);
-            this.coolMethod(message, callbackContext);
+           int arg1 = args.getInt(0);
+            int arg2 = args.getInt(1);
+
+            int result = arg1+ arg2;
+
+            callbackContext.success("Result : " +result);
+            
             return true;
         }
         return false;
